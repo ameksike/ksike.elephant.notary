@@ -1,7 +1,4 @@
-# notary-elephant
-This is simple and light template engine for php and html support
-
-```php
+<?php
 	/*
 	 * Ejemplo de utilizacion del la biblioteca Ksike/Notary
 	 * */
@@ -13,10 +10,9 @@ This is simple and light template engine for php and html support
 	));
 	//... paso 2: definir los espacios de nombres a utilizar
 	use Ksike\notary\src\server\Main as Notary;
-```
-
-```php
+	
 	//... paso 3: utilizar la biblioteca
+
 	//... ... procesar plantillas html simples utilizando comillas dobles
 	$out = Notary::this()->compile("<h3> esto es un tpl simple </h3> '{\$data}' ... ", "MIO");
 	print_r($out);  echo " <br>  \n"; 
@@ -24,8 +20,7 @@ This is simple and light template engine for php and html support
 	//... ... procesar plantillas html simples utilizando comillas simples
 	$out = Notary::this()->compile('<h3> esto es un tpl simple </h3> \'$data\' ... ', "MIO");
 	echo($out); echo " <br>  \n"; 
-```
-```php
+	
 	//... ...  procesar plantillas html simples utilizando arreglo de valores
 	$out = Notary::this()->compile("<h3> esto es un tpl \$type </h3> '\$data' ... ", array("data"=>"MIO", "type"=>"html"));
 	echo($out);  echo " <br>  \n";  
@@ -33,15 +28,11 @@ This is simple and light template engine for php and html support
 	//... ...  procesar plantillas almacenadas en ficheros de tipo html
 	$out = Notary::this()->compile( __DIR__ ."/tpl/test2.html" , array("test"=>"MIO"));
 	echo($out);  echo " <br>  \n";  
-```
-
-```php
+	
 	//... ...  procesar plantillas almacenadas en ficheros de tipo php
 	$out = Notary::this()->compile( __DIR__ ."/tpl/test1.php" , array("active"=>"MIO", "cfg"=>array("lissa", "mary", "lucy")));
 	echo($out);  echo " <br>  \n";  
-```
-
-```php
+	
 	//... ...  procesar objetos dentro de las plantillas ejemplo 1
 	class Person { public function getName(){ return "tastico"; } }
 	$out = Notary::this()->compile( __DIR__ ."/tpl/test1.html" , new Person);
@@ -49,9 +40,7 @@ This is simple and light template engine for php and html support
 	//... ...  procesar objetos dentro de las plantillas ejemplo 2
 	$out = Notary::this()->compile( ' Ejm: $el in {$myobj->getName()} ', array("myobj"=>new Person, "el"=>"data" ) );
 	echo($out);  echo " <br>  \n";
-```
-
-```php
+	
 	//... ...  establecer ruta de las plantillas 
 	Notary::this()->path( __DIR__ ."/tpl/");
 	$out = Notary::this()->compile("test2.html" , array("test"=>"MIO"));
@@ -61,4 +50,3 @@ This is simple and light template engine for php and html support
 	
 	//... ...  obtener ruta de las plantillas 
 	echo(Notary::this()->path());  echo " <br>  \n";
-```

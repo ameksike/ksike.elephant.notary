@@ -1,0 +1,16 @@
+{
+  "author": {
+    "name": "Antonio Membrides Espinosa"
+  },
+  "dev_dependencies": {
+	"php": "^5.3.27"
+  },
+  "description": "This is simple and light template engine for php and html support.",
+  "main": "src/server/Main.php",
+  "license": "GPL",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ameksike/notary-elephant.git"
+  },
+}
