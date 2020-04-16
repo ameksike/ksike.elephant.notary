@@ -15,108 +15,105 @@ use Ksike\notary\src\server\Main as Notary;
 
 ### How to process simple HTML templates using double quotes
 ```php
-	$out = Notary::this()->compile(
-		"<h3> esto es un tpl simple </h3> '{\$data}' ... ", 
-		"MY-VALUE"
-	);
-	print_r($out); 
+$out = Notary::this()->compile(
+	"<h3> esto es un tpl simple </h3> '{\$data}' ... ", 
+	"MY-VALUE"
+);
+print_r($out); 
 ```
 
 ### How to process simple HTML templates using single quotes
 ```php
-	$out = Notary::this()->compile(
-		'<h3> esto es un tpl simple </h3> \'$data\' ... ', 
-		"MY-VALUE"
-	);
-	echo($out); 
+$out = Notary::this()->compile(
+	'<h3> esto es un tpl simple </h3> \'$data\' ... ', 
+	"MY-VALUE"
+);
+echo($out); 
 ```
 
 ### How to process simple HTML templates using array of values
 ```php
-	$out = Notary::this()->compile(
-		"<h3> esto es un tpl \$type </h3> '\$data' ... ", 
-		array(
-			"data"=>"MY-VALUE", 
-			"type"=>"HTML-VALUE"
-		)
-	);
-	echo($out); 
+$out = Notary::this()->compile(
+	"<h3> esto es un tpl \$type </h3> '\$data' ... ", 
+	array(
+		"data"=>"MY-VALUE", 
+		"type"=>"HTML-VALUE"
+	)
+);
+echo($out); 
 ```
 
 ### How to process templates stored in html files
 ```php
-	$out = Notary::this()->compile( 
-		__DIR__ ."/tpl/test2.html" , 
-		array(
-			"data"=>"MY-VALUE", 
-			"test"=>"MY2-VALUE",
-			"type"=>"HTML-VALUE"
-		)
-	);
-	echo($out); 
+$out = Notary::this()->compile( 
+	__DIR__ ."/tpl/test2.html" , 
+	array(
+		"data"=>"MY-VALUE", 
+		"test"=>"MY2-VALUE",
+		"type"=>"HTML-VALUE"
+	)
+);
+echo($out); 
 ```
 
 ### How to process templates stored in files of type PHP
 ```php
-	$out = Notary::this()->compile( 
-		__DIR__ ."/tpl/test1.php" , 
-		array(
-			"active"=>"MIO", 
-			"cfg"=> ["lissa", "mary", "lucy"]
-		)
-	);
-	echo($out);  
+$out = Notary::this()->compile( 
+	__DIR__ ."/tpl/test1.php" , 
+	array(
+		"active"=>"MIO", 
+		"cfg"=> ["lissa", "mary", "lucy"]
+	)
+);
+echo($out);  
 ```
 
 ### How to process objects inside templates
 ```php
+class Person { 
+	public function getName(){ 
+		return "tastico"; 
+	} 
+}
 
-	class Person { 
-		public function getName(){ 
-			return "tastico"; 
-		} 
-	}
+$out = Notary::this()->compile( 
+	__DIR__ ."/tpl/test1.html" , 
+	new Person
+);
 
-	$out = Notary::this()->compile( 
-		__DIR__ ."/tpl/test1.html" , 
-		new Person
-	);
-
-	echo($out);  echo " <br>  \n";
-
-
+echo($out);  echo " <br>  \n";
 ```
 
 ### How to process objects inside templates, another way to use
 ```php
-	$out = Notary::this()->compile( 
-		' Ejm: $el in {$obj->getName()} ',
-		[ 
-			"obj" => new Person, 
-			"el"  => "data" 
-		] 
-	);
-	echo($out); 
+$out = Notary::this()->compile( 
+	' Ejm: $el in {$obj->getName()} ',
+	[ 
+		"obj" => new Person, 
+		"el"  => "data" 
+	] 
+);
+echo($out); 
 ```
 
 ### How to set template path
 ```php
-	Notary::this()->path( __DIR__ ."/tpl/");
-	$out = Notary::this()->compile(
-		"test2.html" , 
-		[ "test" => "MIO" ]
-	);
-	echo($out);  
+Notary::this()->path( __DIR__ ."/tpl/");
+$out = Notary::this()->compile(
+	"test2.html" , 
+	[ "test" => "MIO" ]
+);
+echo($out);  
 
-	$out = Notary::this()->compile(
-		"test1.html" , 
-		[ "data"=> new Person ]
-	);
-	echo($out); 
-	
-	//... How to get template path
-	$out = Notary::this()->path();
-	echo($out); 
+$out = Notary::this()->compile(
+	"test1.html" , 
+	[ "data"=> new Person ]
+);
+echo($out); 
+
+//... How to get template path
+$out = Notary::this()->path();
+echo($out); 
 ```
 
 There are two template models proposed by this library, HTML and PHP. The model to process template templates in PHP is more efficient than HTML, so it is the recommended one, however the other one is cleaner and easier to understand for developers without PHP experience. [For more information about this library access this link and test or review demos](https://github.com/ameksike/ksike.elephant.notary/tree/master/demo) 
