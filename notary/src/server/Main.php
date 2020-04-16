@@ -1,11 +1,11 @@
 <?php
 /*
- * @framework: Bycod
+ * @framework: Ksike
  * @package: Notary
  * @version: 0.1
  * @description: This is simple and light template engine for php and html support
  * @authors: ing. Antonio Membrides Espinosa
- * @mail: amembrides@uci.cu
+ * @mail: tonykssa@gmail.com
  * @made: 23/4/2011
  * @update: 23/4/2011
  * @license: GPL v3
