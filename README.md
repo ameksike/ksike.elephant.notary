@@ -1,4 +1,4 @@
-# notary-elephant
+# Notary Elephant
 This is simple and light template engine for php and html support
 
 Note that a [template processor](https://en.wikipedia.org/wiki/Template_processor) also known as a template engine or template parser, is software designed to combine templates with a data model to produce result documents. The language that the templates are written in is known as a template language or templating language. The result is any kind of formatted output, including documents, web pages, or source code (in source code generation), either in whole or in fragments. A template engine is ordinarily included as a part of a web template system or application framework, and may be used also as a preprocessor or filter. 
@@ -119,6 +119,5 @@ use Ksike\notary\src\server\Main as Notary;
 	echo($out); 
 ```
 
-
-[For more information about this library access this link and test or review demos](https://github.com/ameksike/ksike.elephant.notary/tree/master/demo) 
+There are two template models proposed by this library, HTML and PHP. The model to process template templates in PHP is more efficient than HTML, so it is the recommended one, however the other one is cleaner and easier to understand for developers without PHP experience. [For more information about this library access this link and test or review demos](https://github.com/ameksike/ksike.elephant.notary/tree/master/demo) 
 
